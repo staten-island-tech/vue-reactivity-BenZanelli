@@ -1,6 +1,5 @@
 <template>
-  <header>
-    <div class= "scoreboard h-44 bg-slate-600 w-1/2 m-auto text-center mt-3 rounded-3xl shadow-2xl shadow-stone-400 grid grid-rows-2 gap-y-3">
+    <div class= "scoreboard h-44 border-2 border-slate-700 bg-slate-600 m-auto text-center mt-3 rounded-3xl shadow-2xl shadow-stone-400 grid grid-rows-2 gap-y-3">
      <h1 class="scoretxt flex justify-center mt-2.5 text-white font-bold text-3xl underline w-full items-center">SCOREBOARD</h1>
      <div class="scores justify-center w-full h-12 grid grid-cols-2 mb-7">
         <div class="player flex justify-center flex-col">
@@ -13,7 +12,6 @@
         </div>
     </div>
 </div>
-  </header>
 </template>
 
 <script setup>
