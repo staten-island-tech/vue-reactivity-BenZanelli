@@ -15,7 +15,7 @@
                    <input type="radio" id="sabre" name="weapon" value="sabre" v-model="chosen">
                   <label for="sabre">SABRE</label><br>
           </div>
-              <button @click="test" type="submit" value="PLAY GAME!" class="bg-white border-2 border-slate-300 w-52 hover:bg-slate-200 font-semibold"><RouterLink to="/home">Play Game!</RouterLink></button>
+              <button @click="test" type="submit" value="PLAY GAME!" class="bg-white border-2 border-slate-300 w-52 hover:bg-slate-200 font-semibold"><RouterLink to="/home" class="w-full">Play Game!</RouterLink></button>
           </form> 
           
       </div>
