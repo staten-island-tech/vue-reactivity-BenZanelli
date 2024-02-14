@@ -13,15 +13,8 @@
       class="flex items-center justify-center flex-col m-auto mt-36 h-72 w-2/3 bg-red-400 aspect-square border-8 border-black rounded-3xl"
       v-if="gamestart"
     >
-      <WeaponChoose />
-      <button
-        type="submit"
-        value="PLAY GAME!"
-        class="bg-white border-2 border-slate-300 w-52 hover:bg-slate-200 font-semibold"
-        @click="toggle"
-      >
-        Play Game!
-      </button>
+      <WeaponChoose @toggle="toggle" @getwpn="getWeapon" />
+      
     </div>
     <button v-if="!gamestart & moveset" @click="moves">Go back</button>
   </div>
@@ -36,10 +29,9 @@ import { ref } from "vue";
 // import { chosen } from "../components/WeaponChoose.vue";
 const gamestart = ref(true);
 const moveset = ref(false);
-function getWeapon() {
-  // console.log(chosen.value);
-  // weapon = chosen.value;
-  // return weapon;
+const weapon = ref("")
+function getWeapon(x) {
+  console.log(x)
 }
 function toggle() {
   gamestart.value = !gamestart.value;
