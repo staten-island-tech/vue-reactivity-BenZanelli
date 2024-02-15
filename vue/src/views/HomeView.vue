@@ -17,7 +17,16 @@
       
     </div>
     <button v-if="!gamestart & moveset" @click="moves">Go back</button>
-    <ThePlayer/>
+    <div class="strip flex flex-col" v-if="!gamestart & !moveset">
+      <div class="icons flex flex-row justify-around mt-28">
+        <ThePlayer/>
+        <TheComputer/>
+      </div>
+      <img src="" alt="">
+    </div>
+   
+
+    
   </div>
   <RouterView />
 </template>
@@ -28,6 +37,8 @@ import WeaponChoose from "@/components/WeaponChoose.vue";
 import { RouterView, RouterLink } from "vue-router";
 import { ref } from "vue";
 import ThePlayer from "@/components/ThePlayer.vue";
+import TheComputer from "@/components/TheComputer.vue";
+
 // import { chosen } from "../components/WeaponChoose.vue";
 const gamestart = ref(true);
 const moveset = ref(false);
