@@ -7,7 +7,7 @@
       action=""
       class="flex items-center justify-center flex-col"
       id="form"
-      @submit.prevent="$emit('toggle'),"
+      @submit.prevent="$emit('toggle'), $emit('getwpn', chosen)"
     >
       <div class="ep flex flex-row mb-2 mt-2">
         <input type="radio" id="epee" name="weapon" value="epee" v-model="chosen"/>
