@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <header class="grid grid-cols-4" v-if="!gamestart & !moveset">
+  <div class="grid grid-rows-4">
+    <header class="grid grid-cols-4 row-start-1" v-if="!gamestart & !moveset">
       <TheScoreboard class="col-start-2 col-span-2 w-full" />
       <h2
         @click="moves"
@@ -17,12 +17,11 @@
       
     </div>
     <button v-if="!gamestart & moveset" @click="moves">Go back</button>
-    <div class="strip flex flex-col" v-if="!gamestart & !moveset">
-      <div class="icons flex flex-row justify-around mt-28">
-        <ThePlayer/>
-        <TheComputer/>
+    <div class="strip flex flex-col row-start-2 row-span-2" v-if="!gamestart & !moveset">
+      <div class="icons flex flex-row justify-around">
+        <ThePlayer class=" w-96"/>
+        <TheComputer class="w-96"/>
       </div>
-      <img src="" alt="">
     </div>
    
 
@@ -38,7 +37,6 @@ import { RouterView, RouterLink } from "vue-router";
 import { ref } from "vue";
 import ThePlayer from "@/components/ThePlayer.vue";
 import TheComputer from "@/components/TheComputer.vue";
-
 // import { chosen } from "../components/WeaponChoose.vue";
 const gamestart = ref(true);
 const moveset = ref(false);
