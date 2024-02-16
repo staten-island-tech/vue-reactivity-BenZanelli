@@ -11,9 +11,7 @@
     </header>
     <div class="moves" v-if="!gamestart & moveset">
     <TheMoves
-    v-for="thing in moves"
-    :key="thing.name"
-    :each="thing"/>
+    v-for="thing in moves" :key="thing.name" :each="thing" :moves="thing.each" :boom="thing.name" />
     </div>
     <div
       class="flex items-center justify-center flex-col m-auto mt-36 h-72 w-2/3 bg-red-400 aspect-square border-8 border-black rounded-3xl"
@@ -22,11 +20,9 @@
       <WeaponChoose @toggle="toggle" @getwpn="getWeapon"/>
       
     </div>
-    <button v-if="!gamestart & moveset" @click="moves">Go back</button>
+    <button v-if="!gamestart & moveset" @click="movie" class="bg-slate-500 text-white w-1/3 m-auto h-1/2 hover:bg-slate-700 duration-300 rounded-full">Go back</button>
     <div class="strip flex flex-col row-start-2 row-span-2" v-if="!gamestart & !moveset">
       <div class="icons flex flex-row justify-around">
-        <ThePlayer class=" w-96"/>
-        <TheComputer class="w-96"/>
       </div>
     </div>
    
@@ -61,14 +57,14 @@ function movie() {
 }
 const moves = [
    {
-    name:"epee",
+    name:"Epee",
     each:["Lunge", "Parry 6","Parry 4","Parry 2","Parry 8","Fleche","Counter attack","Attack chest","Attack arm","Attack low","Beat 6","Beat 4","Beat 5"]
   },
   {
-    name: "foil",
+    name: "Foil",
     each:["Lunge","Parry 6","Parry 4","fleche","Counter attack","Attack shoulder","Attack chest","Beat 4","Beat 5"]
 },
-{  name:"sabre",
+{  name:"Sabre",
     each:["Lunge","Flunge","Counter attack","Parries 1-8"]
 }
 ]
