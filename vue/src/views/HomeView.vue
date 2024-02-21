@@ -24,6 +24,7 @@
     <div class="strip flex flex-col row-start-2 row-span-2" v-if="!gamestart & !moveset">
       <div class="icons flex flex-row justify-around">
       </div>
+    <MoveMatchups :compmv="compmv" :move="playermv" :weapon="weapon" />
     <div class="game grid grid-cols-5 grid-rows-6 h-full mt-6">
       <TheChoicesig @maybe="test"  :wpn="weapon" :moves="moves" class=" col-start-1 col-span-5 row-start-6 flex justify-center  border-4 border-slate-600 rounded-xl w-fit m-auto h-full"/>
     </div>
@@ -44,6 +45,7 @@ import ThePlayer from "@/components/ThePlayer.vue";
 import TheComputer from "@/components/TheComputer.vue";
 import TheMoves from "@/components/TheMoves.vue";
 import TheChoicesig from "@/components/TheChoicesig.vue";
+import MoveMatchups from "@/components/MoveMatchups.vue";
 // import { chosen } from "../components/WeaponChoose.vue";
 const gamestart = ref(true);
 const moveset = ref(false);
@@ -70,18 +72,22 @@ function movie() {
 const moves = [
    {
     name:"Epee",
-    each:["Lunge", "Parry Arm","Parry Chest","Parry Low","Fleche","Counter attack","Attack chest","Attack arm","Attack low","Beat 6","Beat 4","Beat 5", "Disengage"]
+    each:["Parry Arm","Parry Chest","Parry Low","Fleche","Counter Attack","Attack Chest","Attack Arm","Attack Low",]
   },
   {
     name: "Foil",
-    each:["Lunge","Parry Shoulder","Parry Chest","Fleche","Counter attack","Attack shoulder","Attack chest","Beat Shoulder","Beat Chest", "Disengage"]
+    each:["Parry Shoulder","Parry Chest","Fleche","Counter Attack","Attack Shoulder","Attack Chest"]
 },
 {  name:"Sabre",
-    each:["Lunge","Flunge","Counter attack","Attack Chest","Attack Arm","Attack Mask","Parry Mask", "Parry Chest", "Parry Arm"]
+    each:["Flunge","Counter Attack","Attack Chest","Attack Arm","Attack Mask","Parry Mask", "Parry Chest", "Parry Arm"]
 }
 ]
 let display =[]
-function test(){
+let compmv = ref("")
+let playermv= ref("")
+function test(n){
+  playermv.value = n
+  console.log(playermv.value)
   if(weapon==="epee"){
     display = moves[0].each
   }
@@ -92,8 +98,24 @@ function test(){
     display = moves[2].each
   }
   console.log(display)
-  console.log(display[(Math.floor(Math.random() * display.length))]);
+  compmv.value = display[(Math.floor(Math.random()*display.length))]
+  console.log(compmv.value);
 }
+let result=""
+function thing(x){
+  result=x
+  console.log(result)
+}
+/* let count = 60;
+const timer = setInterval(function() {
+  count--;
+  console.log(count);
+  if (count === 0) {
+    clearInterval(timer);
+    console.log("Time's up!");
+  }
+}, 1000); */
+
 </script>
 
 <style scoped></style>

@@ -1,10 +1,12 @@
 <template>
     <div>
-        <button @click="$emit('maybe')" v-for="move in display" class="flex px-5 border-2 border-black bg-slate-400 hover:bg-slate-500" :id="move" >{{ move }}</button>
+        <button @click="$emit('maybe', move)" v-for="move in display" class="flex px-5 border-2 border-black bg-slate-400 hover:bg-slate-500" :id="move" >{{ move }}</button>
     </div>
 </template>
 
 <script setup>
+import { ref } from 'vue';
+const x = ref()
     const props = defineProps({
         wpn:String,
         moves:Object
