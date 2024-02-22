@@ -1,11 +1,13 @@
 <template>
-    <div>
-        <h1 v-if="result!==''">{{ result }}</h1>
-        <div class="actions">
-            <h2 v-if="result!==''">{{ move }}</h2>
-            <h3 v-if="result!==''">{{ compmv }}</h3>
+    <div class="flex flex-col justify-center m-auto mt-6 bg-slate-500 rounded-full w-1/3 h-14 border-slate-600 border-4 text-white font-semibold underline hover:bg-slate-600 hover:border-slate-700">
+        <h1 v-if="result!==''" class="flex justify-center">{{ result }}</h1>
+        <div class="actions flex flex-row justify-center">
+            <h2 v-if="result!==''" class="mr-10">You're move: {{ move }}</h2>
+            <h3 v-if="result!==''">Computer move: {{ compmv }}</h3>
         </div>
-        <button @click="test();$emit('blah', result);$emit('cdown',5) " v-if="move!='' & result===''">Confirm: {{ move }} and end turn?</button>
+        <button @click="test();$emit('blah', result);$emit('cdown',5) " v-if="move!='' & result===''">
+            <p>Confirm: {{ move }} and end turn?</p>
+        </button>
        
     </div>
 </template>
@@ -22,90 +24,90 @@ let result = ref("")
 function test(){
     if(props.weapon==="epee"){
     if(props.move==="Parry Arm" & props.compmv==="Attack Arm"){
-        result.value="You scored!"
+        result.value="You scored! :)"
     }
     else if(props.move==="Parry Chest"&props.compmv==="Attack Chest"){
-        result.value="You scored!"
+        result.value="You scored! :)"
     }
     else if(props.move==="Parry Low"&props.compmv==="Attack Low"){
-        result.value="You scored!"
+        result.value="You scored! :)"
     }
     else if(props.move==="Fleche"&props.compmv!="Parry Chest"){
-        result.value="You scored!"
+        result.value="You scored! :)"
     }
     else if(props.move==="Counter Attack"&props.compmv==="Attack Low"){
-        result.value="You scored!"
+        result.value="You scored! :)"
     }
     else if(props.move==="Attack Chest" &props.compmv!="Parry Chest" ){
-        result.value="You scored!"
+        result.value="You scored! :)"
     }
     else if(props.move==="Attack Arm"&props.compmv!="Parry Arm"){
-        result.value="You scored!"
+        result.value="You scored! :)"
     }
     else if(props.move==="Attack Low"& props.compmv==="Counter Attack"){
-        result.value="They scored!"
+        result.value="They scored! :("
     }
     else if(props.move==="Attack Low"& props.compmv!="Parry Low"){
-        result.value="You scored!"
+        result.value="You scored! :)"
     }
      else{
-        result.value="They scored!"
+        result.value="They scored! :("
     } 
     console.log(props.move, props.compmv, result.value)
 }
     else if(props.weapon==="foil"){
         if(props.move==="Parry Shoulder" & props.compmv==="Attack Shoulder"){
-        result.value="You scored!"
+        result.value="You scored! :)"
     }
     else if(props.move==="Parry Chest"&props.compmv==="Attack Chest"){
-        result.value="You scored!"
+        result.value="You scored! :)"
     }
     else if(props.move==="Fleche"&props.compmv!="Parry Chest"){
-        result.value="You scored!"
+        result.value="You scored! :)"
     }
     else if(props.move==="Counter Attack"&props.compmv==="Parry Shoulder"){
-        result.value="You scored!"
+        result.value="You scored! :)"
     }
     else if(props.move==="Attack Chest" &props.compmv!="Parry Chest" ){
-        result.value="You scored!"
+        result.value="You scored! :)"
     }
     else if(props.move==="Attack Shoulder"&props.compmv!="Parry Shoulder"){
-        result.value="You scored!"
+        result.value="You scored! :)"
     }
      else{
-        result.value="They scored!"
+        result.value="They scored! :("
     } 
     }
     else{
         if(props.move==="Parry Mask" & props.compmv==="Attack Mask"){
-        result.value="You scored!"
+        result.value="You scored! :)"
     }
     else if(props.move==="Parry Chest"&props.compmv==="Attack Chest"){
-        result.value="You scored!"
+        result.value="You scored! :)"
     }
     else if(props.move==="Parry Arm"&props.compmv==="Attack Arm"){
-        result.value="You scored!"
+        result.value="You scored! :)"
     }
     else if(props.move==="Flunge"&props.compmv!="Parry Chest"){
-        result.value="You scored!"
+        result.value="You scored! :)"
     }
     else if(props.move==="Counter Attack"&props.compmv==="Attack Mask"){
-        result.value="You scored!"
+        result.value="You scored! :)"
     }
     else if(props.move==="Attack Chest" &props.compmv!="Parry Chest" ){
-        result.value="You scored!"
+        result.value="You scored! :)"
     }
     else if(props.move==="Attack Arm"&props.compmv!="Parry Arm"){
-        result.value="You scored!"
+        result.value="You scored! :)"
     }
     else if(props.move==="Attack Mask"& props.compmv==="Counter Attack"){
-        result.value="They scored!"
+        result.value="They scored! :("
     }
     else if(props.move==="Attack Mask"& props.compmv!="Parry Mask"){
-        result.value="You scored!"
+        result.value="You scored! :)"
     }
      else{
-        result.value="They scored!"
+        result.value="They scored! :("
     } 
     }
 }

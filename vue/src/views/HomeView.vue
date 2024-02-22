@@ -29,13 +29,12 @@
       <TheChoicesig v-if="pscore!=5 & oscore!=5" @maybe="test"  :wpn="weapon" :moves="moves" class=" col-start-1 col-span-5 row-start-6 flex justify-center  border-4 border-slate-600 rounded-xl w-fit m-auto h-full"/>
     </div>
     </div>
-   <TheWin v-if="pscore===5 || oscore===5" :winner="wienner" :p="pscore" :o="oscore" @return="reset"/>
+   <TheWin v-if="pscore===5 || oscore===5" :winner="wienner" :p="pscore" :o="oscore" @return="reset" />
 
     
   </div>
   <RouterView />
 </template>
-
 <script setup>
 import TheScoreboard from "@/components/TheScoreboard.vue";
 import WeaponChoose from "@/components/WeaponChoose.vue";
@@ -90,7 +89,7 @@ function movie() {
 const moves = [
    {
     name:"Epee",
-    each:["Parry Arm","Parry Chest","Parry Low","Fleche","Counter Attack","Attack Chest","Attack Arm","Attack Low",]
+    each:["Parry Arm","Parry Chest","Parry Low","Fleche","Counter Attack","Attack Chest","Attack Arm","Attack Low","Jump Back Flick"]
   },
   {
     name: "Foil",
@@ -131,7 +130,7 @@ function countdown(n){
   count.value--;
   console.log(count.value);
   if (count.value === 0) {
-    if(result==="You scored!"){
+    if(result==="You scored! :)"){
     add1()
   }
   else{
