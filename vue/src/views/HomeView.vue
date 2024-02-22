@@ -29,7 +29,7 @@
       <TheChoicesig v-if="pscore!=5 & oscore!=5" @maybe="test"  :wpn="weapon" :moves="moves" class=" col-start-1 col-span-5 row-start-6 flex justify-center  border-4 border-slate-600 rounded-xl w-fit m-auto h-full"/>
     </div>
     </div>
-   <TheWin v-if="pscore===5 || oscore===5" @winner="winner"/>
+   <TheWin v-if="pscore===5 || oscore===5" :winner="wienner" :p="pscore" :o="oscore" @return="reset"/>
 
     
   </div>
@@ -61,18 +61,21 @@ function add2(){
   oscore.value++
   wins()
 }
-let winner = ref("")
+let wienner = ref("")
 function wins(){
   if(pscore.value===5){
-  winner.value="player"
+  wienner.value="player"
 }
 else if(oscore.value===5){
-  winner.value="computer"
+  wienner.value="computer"
 }
-console.log(winner.value)
-
+console.log(wienner.value)
 }
-
+function reset() {
+  gamestart.value = !gamestart.value
+  oscore.value = 0
+  pscore.value = 0
+}
 function getWeapon(x) {
   weapon = x
   console.log(weapon)
@@ -101,6 +104,7 @@ let display =[]
 let compmv = ref("")
 let playermv= ref("")
 function test(n){
+  count.value = 5
   playermv.value = n
   console.log(playermv.value)
   if(weapon==="epee"){
