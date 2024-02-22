@@ -131,16 +131,17 @@ function countdown(n){
   count.value--;
   console.log(count.value);
   if (count.value === 0) {
-    clearInterval(timer);
-    console.log("Time's up!");
-  }
-}, 1000)
-  if(result==="You scored!"){
+    if(result==="You scored!"){
     add1()
   }
   else{
     add2()
   }
+    clearInterval(timer);
+    console.log("Time's up!");
+  }
+}, 1000)
+ 
 }
 ;
 
