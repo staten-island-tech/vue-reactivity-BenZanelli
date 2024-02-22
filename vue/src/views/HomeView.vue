@@ -1,6 +1,6 @@
 <template>
   <div class="grid grid-rows-4">
-    <header class="grid grid-cols-4 row-start-1" v-if="!gamestart & !moveset">
+    <header class="grid grid-cols-4 row-start-1" v-if="!gamestart & !moveset & pscore!=5 & oscore!=5">
       <TheScoreboard class="col-start-2 col-span-2 w-full" :wpn="weapon" :pscore="pscore" :oscore="oscore" @add1="add1" @add2="add2" />
       <h2
         @click="movie"
@@ -24,7 +24,7 @@
     <div class="strip flex flex-col row-start-2 row-span-2" v-if="!gamestart & !moveset">
       <div class="icons flex flex-row justify-around">
       </div>
-    <MoveMatchups :compmv="compmv" :move="playermv" :weapon="weapon" />
+    <MoveMatchups v-if="count!=0" :compmv="compmv" :move="playermv" :weapon="weapon" @blah="thing" @cdown="countdown"/>
     <div class="game grid grid-cols-5 grid-rows-6 h-full mt-6">
       <TheChoicesig @maybe="test"  :wpn="weapon" :moves="moves" class=" col-start-1 col-span-5 row-start-6 flex justify-center  border-4 border-slate-600 rounded-xl w-fit m-auto h-full"/>
     </div>
@@ -106,15 +106,24 @@ function thing(x){
   result=x
   console.log(result)
 }
-/* let count = 60;
-const timer = setInterval(function() {
-  count--;
-  console.log(count);
-  if (count === 0) {
+let count = ref(5);
+function countdown(n){
+  const timer = setInterval(function() {
+  count.value--;
+  console.log(count.value);
+  if (count.value === 0) {
     clearInterval(timer);
     console.log("Time's up!");
   }
-}, 1000); */
+}, 1000)
+  if(result==="You scored!"){
+    add1()
+  }
+  else{
+    add2()
+  }
+}
+;
 
 </script>
 
