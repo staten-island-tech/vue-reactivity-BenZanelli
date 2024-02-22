@@ -9,7 +9,7 @@
         Move Sets
       </h2>
     </header>
-    <div class="moves" v-if="!gamestart & moveset">
+    <div class="moves" v-if="!gamestart & moveset &pscore!=5 & oscore!=5">
     <TheMoves
     v-for="thing in moves" :key="thing.name" :each="thing" :moves="thing.each" :boom="thing.name" />
     </div>
@@ -26,10 +26,10 @@
       </div>
     <MoveMatchups v-if="count!=0" :compmv="compmv" :move="playermv" :weapon="weapon" @blah="thing" @cdown="countdown"/>
     <div class="game grid grid-cols-5 grid-rows-6 h-full mt-6">
-      <TheChoicesig @maybe="test"  :wpn="weapon" :moves="moves" class=" col-start-1 col-span-5 row-start-6 flex justify-center  border-4 border-slate-600 rounded-xl w-fit m-auto h-full"/>
+      <TheChoicesig v-if="pscore!=5 & oscore!=5" @maybe="test"  :wpn="weapon" :moves="moves" class=" col-start-1 col-span-5 row-start-6 flex justify-center  border-4 border-slate-600 rounded-xl w-fit m-auto h-full"/>
     </div>
     </div>
-   
+   <TheWin v-if="pscore===5 || oscore===5" @winner="winner"/>
 
     
   </div>
@@ -46,6 +46,7 @@ import TheComputer from "@/components/TheComputer.vue";
 import TheMoves from "@/components/TheMoves.vue";
 import TheChoicesig from "@/components/TheChoicesig.vue";
 import MoveMatchups from "@/components/MoveMatchups.vue";
+import TheWin from "@/components/TheWin.vue";
 // import { chosen } from "../components/WeaponChoose.vue";
 const gamestart = ref(true);
 const moveset = ref(false);
@@ -54,10 +55,24 @@ const pscore = ref(0)
 const oscore = ref(0)
 function add1(){
   pscore.value++
+  wins()
 }
 function add2(){
   oscore.value++
+  wins()
 }
+let winner = ref("")
+function wins(){
+  if(pscore.value===5){
+  winner.value="player"
+}
+else if(oscore.value===5){
+  winner.value="computer"
+}
+console.log(winner.value)
+
+}
+
 function getWeapon(x) {
   weapon = x
   console.log(weapon)
