@@ -89,7 +89,7 @@ function movie() {
 const moves = [
    {
     name:"Epee",
-    each:["Parry Arm","Parry Chest","Parry Low","Fleche","Counter Attack","Attack Chest","Attack Arm","Attack Low","Jump Back Flick"]
+    each:["Parry Arm","Parry Chest","Parry Low","Fleche","Counter Attack","Attack Chest","Attack Arm","Attack Low"]
   },
   {
     name: "Foil",

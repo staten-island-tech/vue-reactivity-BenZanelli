@@ -23,35 +23,92 @@ let result = ref("")
 
 function test(){
     if(props.weapon==="epee"){
-    if(props.move==="Parry Arm" & props.compmv==="Attack Arm"){
-        result.value="You scored! :)"
+    if(props.move==="Parry Arm"& props.compmv==="Attack Chest"){
+        result.value="They scored! :("
     }
-    else if(props.move==="Parry Chest"&props.compmv==="Attack Chest"){
-        result.value="You scored! :)"
+    else if(props.move==="Parry Arm"& props.compmv==="Attack Low"){
+        result.value="They scored! :("
     }
-    else if(props.move==="Parry Low"&props.compmv==="Attack Low"){
-        result.value="You scored! :)"
+    else if(props.move==="Parry Arm"& props.compmv==="Fleche"){
+        result.value="They scored! :("
     }
-    else if(props.move==="Fleche"&props.compmv!="Parry Chest"){
-        result.value="You scored! :)"
+    else if(props.move==="Parry Arm"& props.compmv==="Parry Low"){
+        result.value="They scored! :("
     }
-    else if(props.move==="Counter Attack"&props.compmv==="Attack Low"){
-        result.value="You scored! :)"
+    else if(props.move==="Parry Chest"&props.compmv==="Attack Arm"){
+        result.value="They scored! :("
     }
-    else if(props.move==="Attack Chest" &props.compmv!="Parry Chest" ){
-        result.value="You scored! :)"
+    else if(props.move==="Parry Chest"&props.compmv==="Attack Low"){
+        result.value="They scored! :("
     }
-    else if(props.move==="Attack Arm"&props.compmv!="Parry Arm"){
-        result.value="You scored! :)"
+    else if(props.move==="Parry Chest"&props.compmv==="Parry Arm"){
+        result.value="They scored! :("
+    }
+    else if(props.move==="Parry Low"&props.compmv==="Parry Chest"){
+        result.value="They scored! :("
+    }
+    else if(props.move==="Parry Low"&props.compmv==="Attack Arm"){
+        result.value="They scored! :("
+    }
+    else if(props.move==="Parry Low"&props.compmv==="Attack Chest"){
+        result.value="They scored! :("
+    }
+    else if(props.move==="Parry Low"&props.compmv==="Fleche"){
+        result.value="They scored! :("
+    }
+    else if(props.move==="Fleche"&props.compmv==="Parry Chest"){
+        result.value="They scored! :("
+    }
+    else if(props.move==="Fleche"&props.compmv==="Parry Arm"){
+        result.value="They scored! :("
+    }
+    else if(props.move==="Fleche"&props.compmv==="Counter Attack"){
+        result.value="They scored! :("
+    }
+    else if(props.move==="Counter Attack"&props.compmv==="Parry Chest"){
+        result.value="They scored! :("
+    }
+    else if(props.move==="Counter Attack"&props.compmv==="Parry Arm"){
+        result.value="They scored! :("
+    }
+    else if(props.move==="Counter Attack"&props.compmv==="Parry Low"){
+        result.value="They scored! :("
+    }
+    else if(props.move==="Attack Chest" &props.compmv==="Parry Chest" ){
+        result.value="They scored! :("
+    }
+    else if(props.move==="Attack Chest" &props.compmv==="Counter Attack" ){
+        result.value="They scored! :("
+    }
+    else if(props.move==="Attack Chest" &props.compmv==="Fleche" ){
+        result.value="They scored! :("
+    }
+    else if(props.move==="Attack Chest" &props.compmv==="Attack Arm" ){
+        result.value="They scored! :("
+    }
+    else if(props.move==="Attack Arm"&props.compmv==="Parry Arm"){
+        result.value="They scored! :("
+    }
+    else if(props.move==="Attack Arm"&props.compmv==="Counter Attack"){
+        result.value="They scored! :("
+    }
+    else if(props.move==="Attack Arm"&props.compmv==="Fleche"){
+        result.value="They scored! :("
     }
     else if(props.move==="Attack Low"& props.compmv==="Counter Attack"){
         result.value="They scored! :("
     }
-    else if(props.move==="Attack Low"& props.compmv!="Parry Low"){
-        result.value="You scored! :)"
+    else if(props.move==="Attack Low"& props.compmv==="Parry Low"){
+        result.value="They scored! :("
+    }
+    else if(props.move==="Attack Low"& props.compmv==="Attack Chest"){
+        result.value="They scored! :("
+    }
+    else if(props.move==="Attack Low"& props.compmv==="Attack Arm"){
+        result.value="They scored! :("
     }
      else{
-        result.value="They scored! :("
+        result.value="You scored! :)"
     } 
     console.log(props.move, props.compmv, result.value)
 }
