@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col justify-center m-auto mt-6 bg-slate-500 rounded-full w-1/3 h-14 border-slate-600 border-4 text-white font-semibold underline hover:bg-slate-600 hover:border-slate-700">
+    <div class="flex flex-col justify-center m-auto mt-6 bg-slate-500 rounded-full w-2/3 h-14 border-slate-600 border-4 text-white font-semibold underline hover:bg-slate-600 hover:border-slate-700">
         <h1 v-if="result!==''" class="flex justify-center">{{ result }}</h1>
         <div class="actions flex flex-row justify-center">
             <h2 v-if="result!==''" class="mr-10">You're move: {{ move }}</h2>

@@ -1,7 +1,7 @@
 <template>
   <div class="grid grid-rows-4">
     <header class="grid grid-cols-4 row-start-1" v-if="!gamestart & !moveset & pscore!=5 & oscore!=5">
-      <TheScoreboard class="col-start-2 col-span-2 w-full" :wpn="weapon" :pscore="pscore" :oscore="oscore" @add1="add1" @add2="add2" />
+      <TheScoreboard class="col-start-2 col-span-2 w-full" :wpn="weapon" :pscore="pscore" :oscore="oscore" />
       <h2
         @click="movie"
         class="text-white h-12 shadow-2xl shadow-stone-400 rounded-lg hover:text-blue-400 flex w-32 underline m-auto items-center justify-center text-xl border-2 border-slate-700 bg-slate-600"
@@ -31,7 +31,6 @@
     </div>
    <TheWin v-if="pscore===5 || oscore===5" :winner="wienner" :p="pscore" :o="oscore" @return="reset" />
 
-    
   </div>
   <RouterView />
 </template>
@@ -103,7 +102,7 @@ let display =[]
 let compmv = ref("")
 let playermv= ref("")
 function test(n){
-  count.value = 5
+  count.value = 3
   playermv.value = n
   console.log(playermv.value)
   if(weapon==="epee"){
@@ -124,23 +123,25 @@ function thing(x){
   result=x
   console.log(result)
 }
-let count = ref(5);
+let count = ref(0);
 function countdown(n){
+  
   const timer = setInterval(function() {
   count.value--;
   console.log(count.value);
+  
   if (count.value === 0) {
-    if(result==="You scored! :)"){
-    add1()
-  }
-  else{
-    add2()
-  }
+    
     clearInterval(timer);
     console.log("Time's up!");
   }
 }, 1000)
- 
+ if(result==="You scored! :)"){
+    add1()
+  }
+  else{
+    add2()
+  } 
 }
 ;
 
