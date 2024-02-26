@@ -5,7 +5,7 @@
             <h2 v-if="result!==''" class="mr-10">You're move: {{ move }}</h2>
             <h3 v-if="result!==''">Computer move: {{ compmv }}</h3>
         </div>
-        <button @click="test();$emit('blah', result);$emit('cdown',5) " v-if="move!='' & result===''">
+        <button @click="test();$emit('blah', result); $emit('cdown',5); $emit('combo', combo); $emit('img') " v-if="move!='' & result===''">
             <p>Confirm: {{ move }} and end turn?</p>
         </button>
        
@@ -20,6 +20,8 @@ const props = defineProps({
     compmv:String
 })
 let result = ref("")
+let combo = props.move.slice(0, 1) + props.compmv.slice(0, 1)
+console.log(combo)
 
 function test(){
     if(props.weapon==="epee"){
