@@ -20,15 +20,15 @@
       <WeaponChoose @toggle="toggle" @getwpn="getWeapon"/>
       
     </div>
-    <button v-if="!gamestart & moveset" @click="movie" class="bg-slate-500  border-4 border-slate-600 text-white w-1/4 m-auto h-1/3 hover:bg-slate-700 hover:border-slate-800 duration-300 rounded-full">Go back</button>
+    <button v-if="!gamestart & moveset" @click="movie" class="bg-slate-500  border-4 border-slate-600 text-white w-1/4 h-1/3 hover:bg-slate-700 hover:border-slate-800 duration-300 rounded-full flex justify-center m-auto">Go back</button>
     <div class="strip flex flex-col row-start-2 row-span-1" v-if="!gamestart & !moveset">
       <div class="icons flex flex-row justify-around">
       </div>
     <MoveMatchups v-if="count!=0 " :compmv="compmv" :move="playermv" :weapon="weapon" @blah="thing" @cdown="countdown" @combo="makecombo" @img="imgchoice"/>
 
-      <div class="game grid grid-cols-5 grid-rows-2 h-fit mt-6">
-      <Theimages class="col-start-2 col-span-3" :commv="compmv" :move="playermv" :weapon="weapon" :mvcmbo="combo" :img="img" v-if="pscore!=5 & oscore!=5 & !moveset & !gamestart"/>
-      <TheChoicesig v-if="pscore!=5 & oscore!=5" @maybe="test"  :wpn="weapon" :moves="moves" class=" col-start-1 col-span-5 row-start-2 flex justify-center  border-4 border-slate-600 rounded-xl w-fit m-auto h-fit"/>
+      <div class="game grid grid-cols-3 grid-rows-2 h-fit mt-6">
+      <Theimages class="flex justify-center m-auto col-start-2" :commv="compmv" :move="playermv" :weapon="weapon" :mvcmbo="combo" :img="img" v-if="pscore!=5 & oscore!=5 & !moveset & !gamestart"/>
+      <TheChoicesig v-if="pscore!=5 & oscore!=5 & !gamething" @maybe="test"  :wpn="weapon" :moves="moves" class=" col-start-1 col-span-5 row-start-2 flex justify-center  border-4 border-slate-600 rounded-xl w-fit m-auto h-fit"/>
     </div>
     </div>
    <TheWin v-if="pscore===5 || oscore===5" :winner="wienner" :p="pscore" :o="oscore" @return="reset" />
@@ -95,6 +95,10 @@ function toggle() {
 function movie() {
   moveset.value = !moveset.value;
 }
+const gamething = ref(false)
+function game(){
+  gamething.value = !gamething.value
+}
 const moves = [
    {
     name:"Epee",
@@ -140,7 +144,7 @@ function thing(x){
 }
 let count = ref(0);
 function countdown(n){
-  
+  game()
   const timer = setInterval(function() {
   count.value--;
   console.log(count.value);
@@ -149,6 +153,7 @@ function countdown(n){
     clearInterval(timer);
     console.log("Time's up!");
     getimg()
+    game()
   }
 }, 1000)
  if(result==="You scored! :)"){
@@ -165,9 +170,14 @@ let img = ""
 function imgchoice() {
   if (weapon === "epee") {
     if(result==="You scored! :)"){
-      if (playermv.value === "Attack Chest") {
-        img = "/parry-arm-epee.jpg"
+      if (playermv.value === "Fleche") {
+        img = "/fleche-hit-epee.gif"
     }
+    }
+    else{
+      if(compmv.value==="Attack Chest"){
+        img = "/opp-chest-hit-epee.gif"
+      }
     }
     
 

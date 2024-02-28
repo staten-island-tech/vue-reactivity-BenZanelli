@@ -1,6 +1,6 @@
 <template>
     <div>
-       <img :src="img" alt="">
+       <img class="aspect-[17-9] duration-300 border-2 border-black rounded-sm shadow-lg shadow-black" :src="img" alt="">
     </div>
 </template>
 

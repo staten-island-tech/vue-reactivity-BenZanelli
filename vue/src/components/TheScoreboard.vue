@@ -1,6 +1,6 @@
 <template>
     <div class= "scoreboard h-40 border-2 border-slate-700 bg-slate-600 m-auto text-center mt-3 rounded-3xl shadow-2xl shadow-stone-400 grid grid-rows-2 gap-y-3">
-      <h1 class="text-pretty text-xl font-semibold text-white mt-3">Welcome to Fencing by Ben Zanelli ft Youwei Zhen & Erica Lin</h1>
+      <h1 class="text-pretty text-xl font-semibold text-white mt-3">Welcome to Fencing by Ben Zanelli</h1>
      <h1 class="scoretxt flex justify-center mt-6 text-white font-bold text-2xl underline w-full items-center">SCOREBOARD</h1>
      <div class="scores justify-center w-full h-12 grid grid-cols-3 mb-10">
         <div class="player flex justify-center flex-col"> 
