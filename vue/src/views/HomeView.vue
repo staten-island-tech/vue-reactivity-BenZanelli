@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <header class="grid grid-cols-4 row-start-1 h-44" v-if="!gamestart & !moveset & pscore!=5 & oscore!=5">
+    <header class="grid grid-cols-4 row-start-1 h-44" v-if="!gamestart & !moveset & wienner===''">
       <TheScoreboard class="col-start-2 col-span-2 w-full" :wpn="weapon" :pscore="pscore" :oscore="oscore" />
       <h2
         @click="movie"
@@ -9,7 +9,7 @@
         Move Sets
       </h2>
     </header>
-    <div class="moves" v-if="!gamestart & moveset &pscore!=5 & oscore!=5">
+    <div class="moves" v-if="!gamestart & moveset & wienner!==''">
     <TheMoves
     v-for="thing in moves" :key="thing.name" :each="thing" :moves="thing.each" :boom="thing.name" />
     </div>
@@ -27,11 +27,11 @@
     <MoveMatchups v-if="count!=0 " :compmv="compmv" :move="playermv" :weapon="weapon" @blah="thing" @cdown="countdown" @combo="makecombo" @img="imgchoice"/>
 
       <div class="game grid grid-cols-3 grid-rows-2 h-fit mt-6">
-      <Theimages class="flex justify-center m-auto col-start-2" :commv="compmv" :move="playermv" :weapon="weapon" :mvcmbo="combo" :img="img" v-if="pscore!=5 & oscore!=5 & !moveset & !gamestart"/>
-      <TheChoicesig v-if="pscore!=5 & oscore!=5 & !gamething" @maybe="test"  :wpn="weapon" :moves="moves" class=" col-start-1 col-span-5 row-start-2 flex justify-center  border-4 border-slate-600 rounded-xl w-fit m-auto h-fit"/>
+      <Theimages class="flex justify-center m-auto col-start-2" :commv="compmv" :move="playermv" :weapon="weapon" :mvcmbo="combo" :img="img" v-if="wienner==='' & !moveset & !gamestart"/>
+      <TheChoicesig v-if="wienner==='' & !gamething" @maybe="test"  :wpn="weapon" :moves="moves" class=" col-start-1 col-span-5 row-start-2 flex justify-center  border-4 border-slate-600 rounded-xl w-fit m-auto h-fit"/>
     </div>
     </div>
-   <TheWin v-if="pscore===5 || oscore===5" :winner="wienner" :p="pscore" :o="oscore" @return="reset" />
+   <TheWin v-if="wienner!==''" :winner="wienner" :p="pscore" :o="oscore" @return="reset" />
 
   </div>
   <RouterView />
@@ -56,11 +56,9 @@ const pscore = ref(0)
 const oscore = ref(0)
 function add1(){
   pscore.value++
-  wins()
 }
 function add2(){
   oscore.value++
-  wins()
 }
 let wienner = ref("")
 function wins(){
@@ -76,7 +74,10 @@ function reset() {
   gamestart.value = !gamestart.value
   oscore.value = 0
   pscore.value = 0
+  wienner.value=''
 }
+
+
 function getWeapon(x) {
   weapon = x
   console.log(weapon)
@@ -149,12 +150,16 @@ function countdown(n){
   count.value--;
   console.log(count.value);
   
-  if (count.value === 0) {
+    if (count.value === 0) {
     clearInterval(timer);
     console.log("Time's up!");
     getimg()
     game()
-  }
+      if (pscore.value === 5 || oscore.value === 5) {
+      wins()
+    }
+    }
+  
 }, 1000)
  if(result==="You scored! :)"){
     add1()
@@ -172,7 +177,10 @@ function imgchoice() {
     if(result==="You scored! :)"){
       if (playermv.value === "Fleche") {
         img = "/fleche-hit-epee.gif"
-    }
+      }
+      else if (playermv.value === "Counter Attack") {
+        img = "/counter-attack-epee.gif"
+      }
     }
     else{
       if(compmv.value==="Attack Chest"){

@@ -1,10 +1,10 @@
 <template>
-    <div class="grid grid-rows-3 h-72">
+    <div class="grid grid-rows-3 h-72 bg-slate-500 w-1/3 justify-center m-auto rounded-2xl border-2 border-slate-700 shadow-2xl shadow-black">
         <h1 v-if="winner==='player'" class="flex justify-center m-auto row-start-1 text-3xl font-bold underline">YOU WIN!!!!!</h1>
         <h2 v-if="winner==='player'" class="flex justify-center m-auto row-start-2 text-3xl font-bold underline">Score {{ p }} to {{ o }}</h2>
         <h1 v-if="winner==='computer'" class="flex justify-center m-auto row-start-1 text-3xl font-bold underline">YOU LOSE HAHA!!!!!</h1>
         <h2 v-if="winner==='computer'" class="flex justify-center m-auto row-start-2 text-3xl font-bold underline">Score {{ o }} to {{ p }}</h2>
-        <button class="flex justify-center m-auto row-start-3 text-3xl font-bold" @click="$emit('return')">Go Back!</button>
+        <button class="inline-block justify-center m-auto row-start-3 text-3xl font-bold border-2 bg-slate-600 text-white rounded-md border-slate-50 w-full h-12  align-middle" @click="$emit('return')">Go Back!</button>
     </div>
 </template>
 
