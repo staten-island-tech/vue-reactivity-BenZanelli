@@ -181,10 +181,31 @@ function imgchoice() {
       else if (playermv.value === "Counter Attack") {
         img = "/counter-attack-epee.gif"
       }
+      else if (playermv.value === "Attack Chest") {
+        img = "/chest-hit-epee.gif"
+      }
+      else if (playermv.value === "Attack Low") {
+        img = "/attack-low-epee.gif"
+      }
+      else if (playermv.value === "Attack Arm") {
+        img = "/arm-hit-epee.gif"
+      }
     }
     else{
       if(compmv.value==="Attack Chest"){
         img = "/opp-chest-hit-epee.gif"
+      }
+      else if (compmv.value === "Counter Attack") {
+        img = "/opp-counter-attack-epee.gif"
+      }
+      else if (compmv.value === "Fleche") {
+        img = "/opp-fleche-hit-epee.gif"
+      }
+      else if (compmv.value === "Attack Low") {
+        img = "/opp-attack-low-epee.gif"
+      }
+      else if (compmv.value === "Attack Arm") {
+        img = "/opp-arm-hit-epee.gif"
       }
     }
     
