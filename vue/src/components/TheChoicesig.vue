@@ -1,32 +1,34 @@
 <template>
-    <div>
-        <button @click="$emit('maybe', move)" v-for="move in display" class="flex px-5 border-2 border-black bg-slate-400 hover:bg-slate-500" :id="move" >{{ move }}</button>
-    </div>
+  <div>
+    <button
+      @click="$emit('maybe', move)"
+      v-for="move in display"
+      class="flex px-5 border-2 border-black bg-slate-400 hover:bg-slate-500"
+      :id="move"
+    >
+      {{ move }}
+    </button>
+  </div>
 </template>
 
 <script setup>
-import { ref } from 'vue';
-const x = ref()
-    const props = defineProps({
-        wpn:String,
-        moves:Object
-    })
-let display = []
-if(props.wpn==="epee"){
-    display = props.moves[0].each
+import { ref } from "vue";
+const x = ref();
+const props = defineProps({
+  wpn: String,
+  moves: Object,
+});
+let display = [];
+if (props.wpn === "epee") {
+  display = props.moves[0].each;
+} else if (props.wpn === "foil") {
+  display = props.moves[1].each;
+} else {
+  display = props.moves[2].each;
 }
-else if(props.wpn==="foil"){
-    display = props.moves[1].each
+function test() {
+  console.log();
 }
-else{
-    display = props.moves[2].each
-}
-function test(){
-    console.log()
-}
-
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
