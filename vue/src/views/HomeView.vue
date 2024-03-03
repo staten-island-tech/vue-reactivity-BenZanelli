@@ -62,7 +62,6 @@
           :move="playermv"
           :weapon="weapon"
           :mvcmbo="combo"
-          :img="img"
           v-if="(wienner === '') & !moveset & !gamestart"
         />
         <TheChoicesig
