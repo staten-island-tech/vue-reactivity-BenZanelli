@@ -22,7 +22,7 @@
     </h1>
     <h2
       v-if="winner === 'computer'"
-      class="flex justify-center m-auto row-start-2 text-3xl font-bold "
+      class="flex justify-center m-auto row-start-2 text-3xl font-bold bg-slate-400 border-2 border-slate-700"
     >
       Score {{ o }} to {{ p }}
     </h2>

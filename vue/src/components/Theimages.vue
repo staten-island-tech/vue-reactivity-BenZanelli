@@ -1,7 +1,7 @@
 <template>
   <div>
     <img
-      class="aspect-[17/9] duration-300 border-2 border-black rounded-sm shadow-lg shadow-black w-full"
+      class="aspect-[21/9] duration-300 border-2 border-black rounded-sm shadow-lg shadow-black w-full"
       :src="img"
       alt=""
     />
