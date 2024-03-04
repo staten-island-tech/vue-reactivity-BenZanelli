@@ -9,7 +9,6 @@
 </template>
 
 <script setup>
-import { watch } from 'vue';
 
 const props = defineProps({
   weapon: String,
@@ -18,7 +17,6 @@ const props = defineProps({
   commv: String,
   img: String,
 });
-watch()
 </script>
 
 <style scoped></style>

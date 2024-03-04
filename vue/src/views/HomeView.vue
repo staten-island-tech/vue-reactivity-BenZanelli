@@ -27,12 +27,12 @@
       />
     </div>
     <div
-      class="flex items-center justify-center flex-col m-auto mt-96 h-72 w-2/3 bg-red-400 aspect-square border-8 border-black rounded-3xl"
+      class="flex items-center justify-center flex-col m-auto mt-[10%] h-72 w-2/3 bg-red-400 aspect-square border-8 border-black rounded-3xl"
       v-if="gamestart"
     >
       <WeaponChoose @toggle="toggle" @getwpn="getWeapon" />
     </div>
-    <button
+        <button
       v-if="!gamestart & moveset"
       @click="movie"
       class="bg-slate-500 border-4 border-slate-600 text-white w-1/4 h-1/3 hover:bg-slate-700 hover:border-slate-800 duration-300 rounded-full flex justify-center m-auto"
