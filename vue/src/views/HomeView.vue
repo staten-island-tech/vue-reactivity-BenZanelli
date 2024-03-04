@@ -300,7 +300,7 @@ function imgchoice() {
       } else if (compmv.value === "Parry Chest") {
         img = "/opp-parry-chest-foil.gif";
       } else if (compmv.value === "Attack Shoulder") {
-        img = "/opp-attack-shoulder.gif";
+        img = "/opp-attack-shoulder-foil.gif";
       } else if (compmv.value === "Counter Attack") {
         img = "/opp-counter-attack-foil-gif";
       }
